@@ -1,0 +1,112 @@
+body {
+    background: url("img/backgroundtiling.png") repeat;
+    -webkit-animation: scrolling 120s linear infinite;
+    -moz-animation: scrolling 120s linear infinite;
+    -o-animation: scrolling 120s linear infinite;
+    animation: scrolling 120s linear infinite;
+
+    font-family: MSGothic;
+}
+
+a {
+    color: gray;
+	text-decoration: underline dotted;
+}
+
+a:visited {
+    color: gray;
+}
+
+.main-div {
+    color: var(--black);
+	text-align: justify;
+	max-width: 476px;
+	padding: 4em;
+	margin-inline: auto;
+}
+
+.content {
+    display: grid;
+	grid-template-columns: 12em 1fr;
+	grid-template-rows: 1fr 140px;
+	justify-content: space-around;
+	gap: 1em 2.5em;
+	margin-block: 2em;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+header {
+	display: flex;
+	align-items: end;
+	gap: 4em;
+
+	p {margin-block: 0}
+}
+
+footer {
+	font-size: 0.875em;
+    grid-column: 1 / -1;
+}
+
+// side elements
+
+.minigame-div {
+    margin: 0; /* Removes default body margins */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensures the body takes the full viewport height */
+    background-color: #f0f0f0;
+}
+
+.centered-image {
+    image-rendering: crisp-edges;
+    image-rendering: -moz-crisp-edges;          /* Firefox */
+    image-rendering: -o-crisp-edges;            /* Opera */
+    image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
+    -ms-interpolation-mode: nearest-neighbor;
+    
+    min-width: 600px;
+    min-height: 600px;
+    position: fixed; /* Ensures the element stays centered even when scrolling */
+    top: 50%; /* Pushes the element halfway down the screen */
+    left: 50%; /* Pushes the element halfway across the screen */
+    transform: translate(-50%, -50%); /* Centers the element exactly */
+}
+
+.floating-img {
+    width: 32px;
+    height: 32px;
+    position: fixed; /* Keeps the image fixed in place */
+    top: 10px; /* Adjusts the vertical position */
+    right: 10px; /* Adjusts the horizontal position */
+    opacity: 0.5; /* Faded by default */
+    transition: opacity 0.3s ease; /* Smooth transition when hovering */
+    cursor: pointer; /* Indicates interactivity */
+}
+
+.floating-img:hover {
+    opacity: 1; /* Fully visible on hover */
+}
+
+// misc: animations, fonts, etc
+@font-face {
+    font-family: MSGothic;
+    src: url(ttf/MSGothic.ttf);
+}
+
+@-webkit-keyframes scrolling {
+    from{
+        background-position: 0% 0%;
+    }
+    to{
+        background-position: 105% 105%;
+    }
+}
