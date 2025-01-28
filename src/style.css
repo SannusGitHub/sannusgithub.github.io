@@ -55,8 +55,6 @@ footer {
     grid-column: 1 / -1;
 }
 
-// side elements
-
 .minigame-div {
     margin: 0; /* Removes default body margins */
     display: flex;
@@ -96,7 +94,6 @@ footer {
     opacity: 1; /* Fully visible on hover */
 }
 
-// misc: animations, fonts, etc
 @font-face {
     font-family: MSGothic;
     src: url(ttf/MSGothic.ttf);
