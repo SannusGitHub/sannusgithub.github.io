@@ -1,4 +1,6 @@
-body {
+body {}
+
+.tiled-background {
     background: url("img/backgroundtiling.png") repeat;
     -webkit-animation: scrolling 120s linear infinite;
     -moz-animation: scrolling 120s linear infinite;
@@ -55,15 +57,6 @@ footer {
     grid-column: 1 / -1;
 }
 
-.minigame-div {
-    margin: 0; /* Removes default body margins */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ensures the body takes the full viewport height */
-    background-color: #f0f0f0;
-}
-
 .centered-image {
     image-rendering: crisp-edges;
     image-rendering: -moz-crisp-edges;          /* Firefox */
@@ -71,27 +64,47 @@ footer {
     image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
     -ms-interpolation-mode: nearest-neighbor;
     
-    min-width: 600px;
-    min-height: 600px;
-    position: fixed; /* Ensures the element stays centered even when scrolling */
-    top: 50%; /* Pushes the element halfway down the screen */
-    left: 50%; /* Pushes the element halfway across the screen */
-    transform: translate(-50%, -50%); /* Centers the element exactly */
+    min-width: 200px;
+    min-height: 200px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    p {color: white;}
+    img {text-align:center;}
 }
 
-.floating-img {
+.shortcut-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+}
+
+.shortcut-button {
     width: 32px;
     height: 32px;
-    position: fixed; /* Keeps the image fixed in place */
-    top: 10px; /* Adjusts the vertical position */
-    right: 10px; /* Adjusts the horizontal position */
-    opacity: 0.5; /* Faded by default */
-    transition: opacity 0.3s ease; /* Smooth transition when hovering */
-    cursor: pointer; /* Indicates interactivity */
+    background-color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+    opacity: 0.5;
 }
 
-.floating-img:hover {
-    opacity: 1; /* Fully visible on hover */
+.shortcut-button:hover {
+    background-color: #ddd;
+    opacity: 1;
+}
+
+.shortcut-button img {
+    width: 24px;
+    height: 24px;
 }
 
 @font-face {
