@@ -29,16 +29,53 @@
         </script>
         <script src="js/balatro.mjs"></script>
     </head>
-    <body class="tiled-background">
+    <body class="tiled-background" style="color: white; text-align: center; font-family: 'm6x11plus'; text-shadow: #000 2px 2px 2px;">
         <!-- if this is how you want me to store this shit then fuck you. i hate CORS with every fiber of my being. -->
         <script>let t = 0;requestAnimationFrame(function update() {t += 1/120;requestAnimationFrame(update);});shaderWebBackground.shade({shaders: {image: {uniforms: {
         iResolution: (gl, loc, ctx) => gl.uniform2f(loc, ctx.width, ctx.height),iTime: (gl, loc, ctx) => gl.uniform1f(loc, t)}}}});</script>
         
-        <div class="balatro-grid">
+        <div class="header">
+            <img src="src/img/balatro/balatrotracker.png" style="display:block; margin-left:auto; margin-right: auto;">
+            <h1>Save Statistics</h1>
+        </div>
+        <div class="balatro-grid" id="deck-grid">
+            <div class="balatro-container balatro-wide">
+                <div class="balatro-wide-column">
+                    <div class="balatro-stat-entry">
+                        <p>Best Hand</p>
+                        <p>3.34e13</p>
+                    </div>
+                    <div class="balatro-stat-entry">
+                        <p>Highest Round</p>
+                        <p>44</p>
+                    </div>
+                    <div class="balatro-stat-entry">
+                        <p>Highest Ante</p>
+                        <p>13</p>
+                    </div>
+                    <div class="balatro-stat-entry">
+                        <p>Most Played Hand</p>
+                        <p>Flush (13774)</p>
+                    </div>
+                    <div class="balatro-stat-entry">
+                        <p>Most Money</p>
+                        <p>$475</p>
+                    </div>
+                    <div class="balatro-stat-entry">
+                        <p>Best Win Streak</p>
+                        <p>3 (0)</p>
+                    </div>
+                    <div class="balatro-stat-entry">
+                        <p>Collection</p>
+                        <p>100% (150/150)</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="main-div">
-            <footer style="color:white; text-align: center;">
+            <footer style="text-align:center;">
                 <p>css and bg sourced from <a href="https://itayfeder.github.io/Fusion-Jokers/">Fusion Jokers</a></p>
+                <p>Last updated Jan. 30th 2024</p>
                 <a href="index.html">back</a>
             </footer>
         </div>

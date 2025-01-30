@@ -280,7 +280,7 @@ function createBalatroContainer(deckStat) {
     rarityParagraph.textContent = `${doneCount} / ${allCount}`;
     container.appendChild(rarityParagraph);
 
-    document.querySelector(".balatro-grid").appendChild(container);
+    document.getElementById("deck-grid").appendChild(container);
 }
 
 addEventListener("DOMContentLoaded", initTable)

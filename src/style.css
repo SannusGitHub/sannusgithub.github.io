@@ -108,6 +108,7 @@ footer {
 }
 
 .balatro-grid {
+    padding: 16px;
     display: flex;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
     justify-content: center;
@@ -133,6 +134,36 @@ footer {
     text-shadow: #000 2px 2px 2px;
     font-size: 1.5rem;
     text-align: center;
+}
+
+.balatro-wide {
+    grid-column: 1 / -1;
+    width: 85%;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.balatro-wide-column {
+    width: 50%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.balatro-stat-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+}
+
+.balatro-stat-entry p {
+    flex: 1;
+    text-align: center;
+    margin: 0;
 }
 
 .image-wrapper {
@@ -164,24 +195,6 @@ footer {
     border-radius: 8px;
     padding: 8px;
     background-color: #F7D762
-}
-
-.collapsible {
-    background-color: #374244;
-    color: white;
-    padding: 1rem;
-    border: 2px solid white;
-    border-radius: 1rem;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: larger;
-}
-
-.collapsible-content {
-    padding: 0 18px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
 }
 
 @font-face {
