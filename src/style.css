@@ -137,9 +137,15 @@ footer {
 }
 
 .balatro-wide {
-    grid-column: 1 / -1;
-    width: 85%;
-    flex-wrap: wrap;
+    padding: 1rem;
+    border: 2px solid white;
+    border-radius: 1rem;
+    background-color: #374244;
+    font-family: 'm6x11plus';
+    color: white;
+    text-shadow: #000 2px 2px 2px;
+    font-size: 1.5rem;
+    text-align: center;
     gap: 1rem;
 }
 
