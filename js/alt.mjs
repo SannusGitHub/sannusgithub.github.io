@@ -1,6 +1,6 @@
 async function login(payload) {
     // https://sannusgithub-private-vecrel.vercel.app/api/auth
-    const response = await fetch("http://localhost:3000/api/auth", {
+    const response = await fetch("https://sannusgithub-private-vecrel.vercel.app/api/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ payload })
@@ -18,7 +18,7 @@ async function login(payload) {
 async function fetchData() {
     const token = localStorage.getItem("token");
 
-    const response = await fetch("http://localhost:3000/api/content", {
+    const response = await fetch("https://sannusgithub-private-vecrel.vercel.app/api/content", {
         headers: { Authorization: `Bearer ${token}` }
     });
 
