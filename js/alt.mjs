@@ -1,5 +1,6 @@
 async function login(payload) {
-    const response = await fetch("https://sannusgithub-private-vecrel.vercel.app/api/auth", {
+    // https://sannusgithub-private-vecrel.vercel.app/api/auth
+    const response = await fetch("http://localhost:3000/api/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ payload })
@@ -17,7 +18,7 @@ async function login(payload) {
 async function fetchData() {
     const token = localStorage.getItem("token");
 
-    const response = await fetch("https://sannusgithub-private-vecrel.vercel.app/api/content", {
+    const response = await fetch("http://localhost:3000/api/content", {
         headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -32,7 +33,6 @@ async function fetchData() {
         script.innerHTML = data.javascriptJs + "\nsetTimeout(init, 0);";
         document.body.appendChild(script);
     } else {
-        contentDiv.innerHTML = "<p>Access Denied</p>";
         console.error("Access denied:", data.error);
     }
 }
