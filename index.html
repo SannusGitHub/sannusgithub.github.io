@@ -1,46 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>homepage</title>
-        <link rel="stylesheet" href="src/style.css">
-        <script src="js/main.mjs"></script>
-    </head>
-    <body class="tiled-background">
-        <div class="main-div">
-            <header>
-                <div>
-                    <img src="src/img/icon.png">
-                    <p>sannu's website</p>
-                </div>
-                <p class="current-rand-message">current message: yeowch i hit my toe</p>
-            </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+    <link rel="stylesheet" href="src/style.scss">
+    <script src="src/main.mjs"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <a href="index.html">>> queerslop.club</a>
+        </div>
+        <div class="section">
+            <div class="sidebar">
+                <p class="sub-label">socials</p>
+                <a href="https://bsky.app/profile/sannusgithub.github.io">bsky</a>
+                <a href="https://github.com/SannusGitHub">github</a>
+                <a href="https://steamcommunity.com/id/holyfuckimcumming/">steam</a>
+                <p class="sub-label">info</p>
+                <a><s>about</s></a>
+                <a><s>creations</s></a>
+                <a href="blog.html">blog</a>
+            </div>
             <div class="content">
-                <nav>
-                    <a href="about.html">about</a>
-                    <a href="creations.html">creations</a>
-                    <a href="balatrotracker.html">balatrotracker</a>
-                    <s><a href="#">shrines</a></s>
-                </nav>
-                <main>
-                    <p>this is a website where i mainly just put things that i would find
-                        interesting or cool. a personal "portfolio" or a corner on the internet
+                <div style="text-align: center;">
+                    <p>
+                        sannu, 21 years old estonian
+                        <br><br>
+                        junior software engineer 2 years into college
+                        <br><br>
+                        avid fan of rei ayanami from evangelion
+                        <br><br>
+                        tend to keep to myself for the most part, welcome
+                        <br><br>
+                        <p>my current time is <span id="currentTime"></span></p>
                     </p>
-                    <p>there are some things to explore around here and if i'm not lazy
-                        i'll fill it with some more stuff. i am currently the most active on
-                        my <a href="https://bsky.app/profile/sannusgithub.github.io">bluesky</a> account
-                    </p>
-                    <p>thank you for visiting!</p>
-                </main>
-                <footer>
-                    <p class="footer-flair-label">footer content</p>
-                    <a href="https://www.youtube.com/channel/UClr2jFYJj28v-tMZVD43W0Q">youtube</a>
-                    <a href="https://steamcommunity.com/id/holyfuckimcumming/">steam</a>
-                    <a href="https://bsky.app/profile/sannusgithub.github.io">bluesky</a>
-                    <a href="alt.html">blog</a>
-                </footer>
+                </div>
             </div>
         </div>
-    </body>
-</html>
+        <div class="section">
+            <div class="content" style="text-align:center">
+                <p>2025</p>
+            </div>
+        </div>
+    </div>
+    <img class="bg-image" src="src/img/rei.png">
+</body>
