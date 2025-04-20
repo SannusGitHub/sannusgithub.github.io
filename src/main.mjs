@@ -36,14 +36,50 @@ function clockWidget(params = {}) {
     };
 }
 
-function timestampWidget(params = {}) {
+function lastUpdatedGitHubWidget(params = {}) {
     const defaultOptions = {
-
+        repositoryApi: 'https://api.github.com/repos/SannusGitHub/sannusgithub.github.io',
+        cacheDuration: 1000 * 60 * 60 * 24, // 24 hrs
     };
-    const options = {...defaultOptions, params};
+    const options = {...defaultOptions, ...params};
+    
+    const CACHE_KEY = "last_updated_github";
+    const CACHE_TIME = "last_updated_github_cached_time";
+    const now = new Date().getTime();
+
+    const cachedTime = localStorage.getItem(CACHE_TIME);
+    const isCacheExpired = !cachedTime || (now - parseInt(cachedTime)) > options.cacheDuration;
+
+    const displayDate = (dateObj) => {
+        const options = { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' };
+        const formatted = dateObj.toLocaleDateString('en-US', options).replace(',', '');
+        const parts = formatted.split(' ');
+        document.getElementById("lastUpdated").textContent = `${parts[0]}, ${parts[1]} ${parts[2]} ${parts[3]}`;
+    };
+
+    if (isCacheExpired) {
+        fetch(options.repositoryApi)
+            .then(res => res.json())
+            .then(data => {
+                const lastUpdated = new Date(data.updated_at);
+                localStorage.setItem(CACHE_KEY, lastUpdated);
+                localStorage.setItem(CACHE_TIME, now);
+                console.log("Fetched new GitHub update:", lastUpdated);
+            })
+            .catch(err => {
+                console.error("Failed to fetch GitHub repo info:", err);
+            });
+    } else {
+        const cachedDate = new Date(localStorage.getItem(CACHE_KEY));
+        console.log("Using cached GitHub update:", cachedDate);
+
+        displayDate(cachedDate);
+    }
 }
 
 window.onload = function() {
     clockWidget();
     setInterval(() => clockWidget(), 60000);
+
+    lastUpdatedGitHubWidget();
 }

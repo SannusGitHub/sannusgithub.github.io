@@ -33,24 +33,52 @@ body {
     width: 100%;
 }
 
-.section .content {
+.content {
     flex: 1;
     padding: 1rem;
+
+    margin: 2%;
 }
 
-.section .sidebar {
+.colored-container {
+    background-color: #373f51;
+}
+
+.right-side-image {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem; /* optional, for spacing between text and image */
+}
+
+.text-section {
+    flex: 2; /* Gives more space to the text */
+}
+
+.image-section img {
+    max-width: 200px; /* or whatever size you want */
+    height: auto;
+    border-radius: 8px; /* optional, just for nice rounded edges */
+}
+
+.sidebar {
     flex: 0 0 20%;
     padding: 1rem;
     display: flex;
     flex-direction: column;
 }
 
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .sidebar .sub-label {
-    background-color:#373f51;
     margin-bottom: 0.5rem;
 }
 
-.sidebar a {
+a {
     color: white;
     margin-bottom: 0.5rem;
 }
