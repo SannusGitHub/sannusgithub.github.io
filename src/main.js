@@ -1,3 +1,5 @@
+import { applyMatchingEventTheme } from "./events.mjs";
+
 function typeWriter(elementId, textContent, speed, pauseMod = 1) {
     var index = 0;
 
@@ -77,7 +79,34 @@ function lastUpdatedGitHubWidget(params = {}) {
     }
 }
 
+function setupImageClickReveal() {
+    const img = document.querySelector('.bg-image');
+    const p = document.querySelector('.hidden-text');
+  
+    if (!img || !p) return;
+  
+    let clickCount = 0;
+  
+    img.addEventListener('click', function () {
+        clickCount++;
+        if (clickCount === 3) {
+            p.classList.remove('slide-right');
+            p.classList.add('slide-left');
+    
+            setTimeout(() => {
+                p.classList.remove('slide-left');
+                p.classList.add('slide-right');
+                clickCount = 0;
+            }, 1500);
+        }
+    });
+}
+
 window.onload = function() {
+    applyMatchingEventTheme();
+
+    setupImageClickReveal();
+
     clockWidget();
     setInterval(() => clockWidget(), 60000);
 

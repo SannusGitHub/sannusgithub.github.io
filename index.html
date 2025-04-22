@@ -5,19 +5,22 @@
     <title>homepage</title>
     <link rel="icon" type="image/x-icon" href="src/rei.ico">
     <link rel="stylesheet" type="text/css" href="src/style.css">
-    <script src="src/main.mjs"></script>
 </head>
 <body>
     <div class="main">
         <div class="header">
-            <a href="index.html">>> queerslop.club</a>
+            <a href="index.html" id="header-title">>> queerslop.club</a>
+            <img id="header-title-flair">
         </div>
         <div class="section">
             <div class="sidebar">
                 <p class="sub-label colored-container">NAVIGATION</p>
-                <a href="https://bsky.app/profile/sannusgithub.github.io">bsky</a>
+                <a href="https://bsky.app/profile/queerslop.club">bsky</a>
                 <a href="https://github.com/SannusGitHub">github</a>
                 <a href="https://steamcommunity.com/id/holyfuckimcumming/">steam</a>
+                <a href="https://open.spotify.com/user/312xvltkpgtfholetgfxjonj3mmm">spotify</a>
+                <a href="https://anilist.co/user/starsannu/animelist">anilist</a>
+                <p class="sub-label colored-container">SITE</p>
                 <a><s>about</s></a>
                 <a><s>creations</s></a>
                 <a><s>diary</s></a>
@@ -25,7 +28,7 @@
             <div class="content colored-container right-side-image">
                 <div class="text-section">
                     <p>
-                        hi, my name is <u>sannu</u> and this is my website. i'm a junior software engineer, as well as a general hobbyist
+                        hi, my name is <u>sannu</u> and this is my website. i'm a  2 year junior software engineer, as well as a general hobbyist
 
                         <br><br>
                         this website is a general dumping ground for things that i find interesting. tech, projects, niche ramblings and thoughts
@@ -42,11 +45,15 @@
         <div class="section">
             <div class="sidebar center-content">
                 <p>current time: <span id="currentTime">...?</span></p>
+                <!-- <p>last updated: <span id="lastUpdated"></span></p> -->
             </div>
             <div class="content colored-container center-content">
                 <p>(c) 2024 - 2025 // made with love</p>
             </div>
         </div>
     </div>
-    <!-- <img class="bg-image" src="src/img/rei.png"> -->
+    <p class="hidden-text">₍^. .^₎⟆</p>
+    <img class="bg-image" id="bg-image" src="src/img/corner-flair.png">
+
+    <script type="module" src="src/main.js"></script>
 </body>
