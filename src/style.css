@@ -57,21 +57,27 @@ body {
     background-color: #373f51;
 }
 
-.right-side-image {
+.sided-image {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem; /* optional, for spacing between text and image */
+    gap: 1rem;
+    position: relative;
 }
 
 .text-section {
-    flex: 2; /* Gives more space to the text */
+    flex: 2;
+    padding: 8px;
 }
 
 .image-section img {
-    max-width: 200px; /* or whatever size you want */
+    image-rendering: pixelated;
+    max-width: 200px;
     height: auto;
-    border-radius: 8px; /* optional, just for nice rounded edges */
+}
+
+.balatro-shadow {
+    filter: drop-shadow(0px 5px #22222281);
 }
 
 .sidebar {
@@ -124,6 +130,39 @@ a {
 .slide-right {
     transform: translateX(0);
 }
+
+.float-motion {
+  animation: float 2s ease-in-out infinite;
+}
+
+.wiggle-motion {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(-1deg);
+    }
+    25% {
+        transform: rotate(1deg);
+    }
+    50% {
+        transform: rotate(-1deg);
+    }
+    75% {
+        transform: rotate(1deg);
+    }
+}
+
 
 @font-face {
     font-family: 'Eurostile Regular';

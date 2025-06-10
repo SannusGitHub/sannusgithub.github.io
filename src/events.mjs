@@ -19,7 +19,7 @@ export const events = [
         start: { month: 12, day: 24 },
         end: { month: 12, day: 26 },
         applyTheme: () => {
-            console.log("christmas");
+            // apply christmas
         }
     },
     {
@@ -34,7 +34,7 @@ export const events = [
         name: "Birthday",
         start: { month: 3, day: 1 },
         applyTheme: () => {
-            console.log("birfday")
+            // apply birthday
         }
     },
     {
@@ -49,16 +49,16 @@ export const events = [
 export function applyMatchingEventTheme() {
     const today = new Date();
     for (const event of events) {
-      if (event.end) {
-        if (isTodayInRange(event.start, event.end)) {
-          event.applyTheme();
-          break;
+        if (event.end) {
+            if (isTodayInRange(event.start, event.end)) {
+                event.applyTheme();
+                break;
+            }
+        } else {
+            if (isTodayEqualTo(event.start)) {
+                event.applyTheme();
+                break;
+            }
         }
-      } else {
-        if (isTodayEqualTo(event.start)) {
-          event.applyTheme();
-          break;
-        }
-      }
     }
 }
