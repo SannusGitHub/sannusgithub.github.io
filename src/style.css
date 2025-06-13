@@ -53,6 +53,17 @@ body {
     overflow: hidden;
 }
 
+.content p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 .colored-container {
     background-color: #373f51;
 }
@@ -100,6 +111,12 @@ body {
 a {
     color: white;
     margin-bottom: 0.5rem;
+    cursor: pointer;
+    text-decoration: underline dotted;
+}
+
+p {
+    text-align: justify;
 }
 
 .bg-image {
