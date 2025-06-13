@@ -1,3 +1,4 @@
+// https://sannusgithub-private-vecrel.vercel.app
 const dstUrl = 'https://sannusgithub-private-vecrel.vercel.app';
 
 async function fetchData(url, header, body, func, fetchErrorFunc = function() {}, method = "POST") {
@@ -66,7 +67,7 @@ async function addEntry(data) {
     const blogContent = document.getElementById("blog-content");
     blogTitleButton.onclick = function() {
         blogContent.innerHTML = "";
-
+        
         blogContent.appendChild(blogTitle);
         blogContent.innerHTML += data.entry.content;
     };
