@@ -1,5 +1,6 @@
 body {
     background-color: #1B1B1E;
+    font-family: 'Eurostile Regular';
 }
 
 .main {
@@ -11,7 +12,6 @@ body {
     color: #d8dbe2;
     background-color: #373f51;
     border-radius: 0px 0px 25px 0px;
-    font-family: 'Eurostile Regular';
 
     padding: 10px;
 
@@ -40,7 +40,6 @@ body {
 
 .section {
     color: #d8dbe2;
-    font-family: 'Eurostile Regular';
     display: flex;
     width: 100%;
 }
@@ -102,6 +101,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
+    padding: 4px;
 }
 
 .sidebar .sub-label {
@@ -119,6 +120,11 @@ p {
     text-align: justify;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
 .bg-image {
     position: absolute;
     right: 0px;
@@ -130,7 +136,6 @@ p {
 
 .hidden-text {
     color: white;
-    font-family: 'Eurostile Regular';
     position: absolute;
     right: 0px;
     bottom: 0px;
@@ -154,6 +159,18 @@ p {
 
 .wiggle-motion {
   animation: wiggle 2s ease-in-out infinite;
+}
+
+.console {
+    padding: 2.5%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    min-width: 50%;
+    min-height: 50%;
 }
 
 @keyframes float {
@@ -180,6 +197,26 @@ p {
     }
 }
 
+.trackfx { 
+    opacity:0.95;
+    -webkit-animation-name: trackanim;
+    -webkit-animation-duration: 0.2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes trackanim {
+	from { 
+			text-shadow:   4px 0px 0px rgba(151, 91, 222, 0.6), -3px 0px 3px rgba(152, 222, 91, 0.8);
+		  
+	}
+	to {
+			text-shadow:  0.6px 0px 3px rgba(151, 91, 222, 0.8), -4px 0px 0px rgba(152, 222, 91, 0.6);
+	}
+		to {
+			text-shadow:  3px 0px 0px rgba(151, 91, 222, 0.4), -2px 0px 0px rgba(152, 222, 91, 0.7);
+	}
+}
 
 @font-face {
     font-family: 'Eurostile Regular';
