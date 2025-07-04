@@ -167,10 +167,34 @@ p {
     position: absolute;
     top: 50%;
     left: 50%;
-    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    min-width: 50%;
-    min-height: 50%;
+    width: 50%;
+    height: 50%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#output {
+    flex-grow: 1;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#cmd {
+    min-height: 1.2em;
+}
+
+#output::-webkit-scrollbar {
+    display: none;
+}
+
+.console p span {
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 @keyframes float {
@@ -197,6 +221,14 @@ p {
     }
 }
 
+@font-face {
+    font-family: 'Eurostile Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Eurostile Regular'), url('fonts/eurostile.woff') format('woff');
+}
+
+/* credit to local58's website */
 .trackfx { 
     opacity:0.95;
     -webkit-animation-name: trackanim;
@@ -207,20 +239,12 @@ p {
 
 @-webkit-keyframes trackanim {
 	from { 
-			text-shadow:   4px 0px 0px rgba(151, 91, 222, 0.6), -3px 0px 3px rgba(152, 222, 91, 0.8);
-		  
+        text-shadow:   4px 0px 0px rgba(151, 91, 222, 0.6), -3px 0px 3px rgba(152, 222, 91, 0.8);  
 	}
 	to {
-			text-shadow:  0.6px 0px 3px rgba(151, 91, 222, 0.8), -4px 0px 0px rgba(152, 222, 91, 0.6);
+        text-shadow:  0.6px 0px 3px rgba(151, 91, 222, 0.8), -4px 0px 0px rgba(152, 222, 91, 0.6);
 	}
-		to {
-			text-shadow:  3px 0px 0px rgba(151, 91, 222, 0.4), -2px 0px 0px rgba(152, 222, 91, 0.7);
+    to {
+        text-shadow:  3px 0px 0px rgba(151, 91, 222, 0.4), -2px 0px 0px rgba(152, 222, 91, 0.7);
 	}
-}
-
-@font-face {
-    font-family: 'Eurostile Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Eurostile Regular'), url('fonts/eurostile.woff') format('woff');
 }
