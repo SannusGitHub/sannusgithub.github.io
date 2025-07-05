@@ -1,3 +1,8 @@
+/* 
+    i won't stop you from looking at this (not like i can do a whole lot anyways)
+    but remember that if you're looking 'round here you might get spoiled on stuff!
+*/
+
 let p = document.getElementById("output");
 let pcmd = document.getElementById("input");
 
@@ -20,13 +25,13 @@ const commands = {
             let string = "Available commands: \n";
 
             for (const [cmd, _] of Object.entries(commands)) {
-                string += cmd + "\n";
+                string += cmd + " ";
             }
 
             p.innerText += string + "\n";
         }
     },
-    "wai": { // Who Am I
+    "wit": { // Who Is This
         func: function(args) {
             let string = "intermeddle";
 
@@ -48,22 +53,35 @@ const commands = {
     },
     "mt": { // Move To
         func: function(args) {
-            if (currentDirectory.parent && args[0] == "..") {
-                currentDirectory = currentDirectory.parent;
+            if (args.length === 0) {
+                p.innerText += "Cannot backtrack: missing path\n";
                 return;
             }
+            const path = args[0].split("/");
 
-            if (args[0] == "") {
-                p.innerText += "Cannot backtrack: no valid path" + "\n";
-                return;
+            for (let index = 0; index < path.length; index++) {
+                const segment = path[index];
+                
+                if (segment === "..") {
+                    if (currentDirectory.parent) {
+                        console.log(currentDirectory.parent);
+                        currentDirectory = currentDirectory.parent;
+                    } else {
+                        p.innerText += "Cannot backtrack: no valid path\n";
+                        return;
+                    }
+                } else if (segment === "") {
+                    p.innerText += "Cannot backtrack: no valid path\n";
+                    return;
+                } else {
+                    if (currentDirectory[segment]) {
+                        currentDirectory = currentDirectory[segment];
+                    } else {
+                        p.innerText += "Cannot backtrack: no valid path\n";
+                        return;
+                    }
+                }
             }
-
-            if (currentDirectory[args[0]] == null) {
-                p.innerText += "Cannot backtrack: no valid path" + "\n";
-                return;
-            }
-            
-            currentDirectory = currentDirectory[args[0]];
         }
     },
     "lf": { // List Files
@@ -88,7 +106,7 @@ const commands = {
             let nameString = args[0] || "newFolder";
             new Folder(nameString, currentDirectory);
 
-            p.innerText += "Created new directory of " + nameString + "\n";
+            p.innerText += "Created new directory of '" + nameString + "'\n";
         }
     },
     "cf": { // Create File
@@ -99,20 +117,22 @@ const commands = {
     "audio": { // audio stuff
         func: function(args) {
             const audio = document.getElementById("bg");
+            if (args.length === 0) {
+                p.innerText += "Audio Driver Kerosene ALC650 (AC'97 Audio Codec, Driver 3.0) volume @ " + audio.volume + "\n";
+            }
             
             if (args.includes("-m") || args.includes("--mute")) {
                 if (audio.paused) {
                     audio.play();
-                    p.innerText += "Audio Driver Kerosene ALC650 (AC'97 Audio Coded Driver 3.0) unmuted\n";
+                    p.innerText += "Audio Driver Kerosene ALC650 (AC'97 Audio Codec, Driver 3.0) unmuted\n";
                 } else {
                     audio.pause();
-                    p.innerText += "Audio Driver Kerosene ALC650 (AC'97 Audio Coded Driver 3.0) muted\n";
+                    p.innerText += "Audio Driver Kerosene ALC650 (AC'97 Audio Codec, Driver 3.0) muted\n";
                 }
             };
 
             if (args.includes("-v") || args.includes("--volume")) {
                 const volume = getArgValue(args, "-v", "--volume");
-                console.log(volume);
 
                 if (volume) {
                     if (!Number.isFinite(parseFloat(volume)) || volume < 0 || volume > 1) {
@@ -120,10 +140,21 @@ const commands = {
                         return;
                     }
 
-                    p.innerText += "Audio Driver Kerosene ALC650 (AC'97 Audio Coded Driver 3.0) volume @ " + volume + "\n";
+                    p.innerText += "Audio Driver Kerosene ALC650 (AC'97 Audio Codec, Driver 3.0) volume @ " + volume + "\n";
                     audio.volume = volume;
                 }
             };
+        }
+    },
+    "hwl": {
+        func: function() {
+            p.innerText += `Kernel: 8.12-rev5-generic.shell x_86_32 (32-bit)
+                            System: Kalmaar Peripherals GX270 SFF
+                            BIOS: Angelton v6.00PG (04/09/2002)
+                            CPU: Interesting Graphics (onboard, 64MB shared)
+                            Memory: 1024MB DDR Non-ECC SDRAM, 333 Mhz (2 dimms)
+                            Resolution: 320x240 (Safe Mode)
+                            Audio: Audio Driver Kerosene ALC650 (AC'97 Audio Codec, Driver 3.0)\n`
         }
     }
 }
@@ -178,7 +209,7 @@ function parseCommand(content) {
         }
     }
 
-    p.innerText += "unknown command\n";
+    p.innerText += "unknown command: " + pcmd.innerHTML + "\n";
     pcmd.innerHTML = "";
     p.scrollTop = p.scrollHeight;
 }
