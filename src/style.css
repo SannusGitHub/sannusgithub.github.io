@@ -174,6 +174,8 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    
+    font-family: 'MaruMinya';
 }
 
 #output {
@@ -230,6 +232,20 @@ audio {
     font-style: normal;
     font-weight: normal;
     src: local('Eurostile Regular'), url('fonts/eurostile.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'ANAKRON';
+    font-style: normal;
+    font-weight: normal;
+    src: local('ANAKRON'), url('fonts/ANAKRON.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'MaruMinya';
+    font-style: normal;
+    font-weight: normal;
+    src: local('ANAKRON'), url('fonts/x12y12pxMaruMinya.woff') format('woff');
 }
 
 /* credit to local58's website */
