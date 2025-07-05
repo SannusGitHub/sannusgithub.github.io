@@ -180,6 +180,7 @@ function parseCommand(content) {
 
     p.innerText += "unknown command\n";
     pcmd.innerHTML = "";
+    p.scrollTop = p.scrollHeight;
 }
 
 addEventListener("keydown", (event) => {
