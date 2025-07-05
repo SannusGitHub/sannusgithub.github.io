@@ -87,6 +87,8 @@ const commands = {
         func: function(args) {
             let nameString = args[0] || "newFolder";
             new Folder(nameString, currentDirectory);
+
+            p.innerText += "Created new directory of " + nameString + "\n";
         }
     },
     "cf": { // Create File
