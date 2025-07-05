@@ -197,6 +197,10 @@ p {
     overflow-wrap: break-word;
 }
 
+audio {
+    display: none;
+}
+
 @keyframes float {
     0%, 100% {
         transform: translateY(0);

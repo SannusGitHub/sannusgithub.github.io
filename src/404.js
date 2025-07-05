@@ -89,9 +89,39 @@ const commands = {
             new Folder(nameString, currentDirectory);
         }
     },
-    "cf": { // Create Fle
+    "cf": { // Create File
         func: function() {
             p.innerText += "User does not have permission\n";
+        }
+    },
+    "audio": { // audio stuff
+        func: function(args) {
+            const audio = document.getElementById("bg");
+            
+            if (args.includes("-m") || args.includes("--mute")) {
+                if (audio.paused) {
+                    audio.play();
+                    p.innerText += "Audio Driver Kerosene ALC650 (AC'97 Audio Coded Driver 3.0) unmuted\n";
+                } else {
+                    audio.pause();
+                    p.innerText += "Audio Driver Kerosene ALC650 (AC'97 Audio Coded Driver 3.0) muted\n";
+                }
+            };
+
+            if (args.includes("-v") || args.includes("--volume")) {
+                const volume = getArgValue(args, "-v", "--volume");
+                console.log(volume);
+
+                if (volume) {
+                    if (!Number.isFinite(parseFloat(volume)) || volume < 0 || volume > 1) {
+                        p.innerText += "Invalid volume setting (accepted signed float: 0 - 1)\n";
+                        return;
+                    }
+
+                    p.innerText += "Audio Driver Kerosene ALC650 (AC'97 Audio Coded Driver 3.0) volume @ " + volume + "\n";
+                    audio.volume = volume;
+                }
+            };
         }
     }
 }
@@ -112,6 +142,16 @@ new Folder("user", dir.root);
 new Folder("intermeddle", dir.root.user);
 new Folder("telliskivi", dir.root.user);
 currentDirectory = dir.root.user.intermeddle;
+
+function getArgValue(args, ...flags) {
+    for (const flag of flags) {
+        const index = args.indexOf(flag);
+        if (index !== -1 && index + 1 < args.length) {
+            return args[index + 1];
+        }
+    }
+    return undefined;
+}
 
 function getFullPathFromCurrentDir(directory) {
     let parts = [];
